@@ -290,6 +290,7 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1001;
 }
 
 .burger-menu span {
@@ -299,6 +300,98 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--text-color);
     margin: 6px 0;
     transition: all 0.3s ease;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+    
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+    
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--white);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        margin: 0;
+    }
+    
+    .main-nav.active {
+        transform: translateX(0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 0;
+    }
+    
+    .nav-list li {
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: 1.5rem 2rem;
+        color: var(--text-color);
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-list a:hover,
+    .nav-list a.active {
+        background: var(--light-bg);
+        color: var(--primary-color);
+        padding-left: 2.5rem;
+    }
+    
+    .has-submenu .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: var(--light-bg);
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin-top: 0;
+    }
+    
+    .submenu li a {
+        padding: 1rem 3rem;
+        font-size: 1rem;
+        color: var(--light-text);
+        border-bottom: none;
+    }
+    
+    .submenu li a:hover {
+        background: var(--white);
+        padding-left: 3.5rem;
+    }
+    
+    .header__right .phone-link {
+        display: none;
+    }
 }
 
 /* Главный экран */
@@ -991,7 +1084,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Map placeholder styles */
-.map-placeholder {
+/* .map-placeholder {
     height: 400px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius);
@@ -1011,9 +1104,9 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.05)"/><circle cx="30" cy="80" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="70" cy="70" r="1.5" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
     animation: float 20s linear infinite;
-}
+} */
 
-.map-content {
+/* .map-content {
     text-align: center;
     color: white;
     z-index: 2;
@@ -1031,7 +1124,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
     opacity: 0.9;
     line-height: 1.6;
-}
+} */
 
 .btn-outline {
     background: transparent;
